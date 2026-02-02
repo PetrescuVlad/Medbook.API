@@ -1,0 +1,12 @@
+﻿services:
+  medbook-api:
+    build:
+      context: ./Medbook.Api
+      dockerfile: Dockerfile
+    ports:
+      - "5000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Data Source=/app/data/medbook.db
+    volumes:
+      - ./data:/app/data
